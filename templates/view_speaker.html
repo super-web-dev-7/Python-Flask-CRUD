@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    <div class="container">
+        <div>
+            <h2>{{ speaker.name }}</h2>
+            <img src="{{ speaker.email }}" alt="profile image" class="headshot"/>
+            <br/>
+            <b>Current City: </b>
+            <div>{{ speaker.current_city }}</div>
+            <b>Current State:</b>
+            <div>{{ speaker.current_state }}</div>
+            <b>Email:</b>
+            <div>{{ speaker.email }}</div>
+            <b>Bio:</b>
+            <div>{{ speaker.bio }}</div>
+            <b>Speaker Rate:</b>
+            <div>{{ speaker.speaker_rate }}</div>
+            <br/>
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            <a href="/">Back to speaker list</a>
+        </div>
+    </div>
+{% endblock %}

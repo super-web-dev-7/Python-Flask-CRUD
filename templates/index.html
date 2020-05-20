@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    <div class="container">
+        <div>
+            <div class="actions">
+                <a class="btn btn-default" href="/add-speaker">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Add speaker
+                </a>
+            </div>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Current City</th>
+                    <th>Current State</th>
+                    <th>Email</th>
+                    <th>Bio</th>
+                    <th>Speaker Rate</th>
+
+                    <th class="col-sm-2">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for value in speakers %}
+                    <tr>
+                        <td>
+                            <a href="/view-speaker/{{ value._id['$oid'] }}">{{ value.name }}</a>
+                            {#                        {{ value.name }}#}
+                        </td>
+                        <td>
+                            {{ value.current_city }}
+                        </td>
+                        <td>
+                            {{ value.current_state }}
+                        </td>
+                        <td>
+                            {{ value.email }}
+                        </td>
+                        <td>
+                            {{ value.bio }}
+                        </td>
+                        <td>
+                            {{ value.speaker_rate }}
+                        </td>
+                        <td>
+                            <a class="btn btn-warning btn-xs"
+                                         href="edit-speaker/{{ value._id['$oid'] }}">Edit
+                            </a>
+                            <a class="btn btn-danger btn-xs"
+                                         href="delete-speaker/{{ value._id['$oid'] }}">Delete
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}
